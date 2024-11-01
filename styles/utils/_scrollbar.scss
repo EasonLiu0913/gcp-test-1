@@ -1,0 +1,47 @@
+.scrollbar {
+  overflow-x: scroll;
+
+  &-x {
+    overflow-y: hidden;
+  }
+
+  &-y {
+    overflow-x: hidden;
+  }
+
+  &-auto {
+    overflow: scroll;
+  }
+
+  &-hidden {
+    overflow: hidden;
+  }
+
+  &,
+  &-x,
+  &-y,
+  &-auto {
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-button {
+      background: transparent;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: map-get($theme-colors, "gray-4");
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: transparent;
+    }
+  }
+}

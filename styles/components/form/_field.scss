@@ -1,0 +1,213 @@
+$field-transition: 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+
+.field {
+  &--with-bottom {
+    // padding-bottom: 20px;
+    margin-bottom: 20px !important; //為了改 MUI 的樣式，權重必須加重
+  }
+
+  &__inner {
+    text-align: left;
+  }
+
+  &__control {
+    color: map-get($theme-colors, "primary");
+    height: 40px;
+    max-width: 100%;
+    outline: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    &::before {
+      border-radius: inherit;
+    }
+  }
+
+  &__control-container {
+    height: inherit;
+  }
+
+  &__native {
+    font-weight: 400;
+    text-decoration: inherit;
+    text-transform: inherit;
+    border: none;
+    border-radius: 0;
+    background: none;
+    width: 100%;
+    min-width: 0;
+    outline: 0 !important;
+    line-height: 24px;
+    user-select: auto;
+    color: map-get($theme-colors, 'text-primary');
+    padding: 10px;
+    margin: 0 1px;
+    border-radius: 4px;
+    &::placeholder {
+      font-size: map-get($text-size, 'sm');
+      color: map-get($theme-colors, 'text-secondary');
+    }
+  }
+
+  &__prepend {
+    padding-left: 12px;
+  }
+
+  &__append {
+    padding-right: 12px;
+
+    .field__clearable-action {
+      min-width: 30px;
+      min-height: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__bottom {
+    font-size: map-get($text-size, 'sm');
+    min-height: 20px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 6px 6px 0;
+    // backface-visibility: hidden;
+
+    &--animated {
+      transform: translateY(100%);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &--invalid {
+      color: map-get($theme-colors, "red");
+    }
+  }
+
+  &__message {
+    line-height: 1;
+  }
+
+  &__label {
+    margin-bottom: 8px;
+    line-height: 1;
+    letter-spacing: 0.8px;
+  }
+
+  &--dense {
+    .field__control,
+    .field__marginal {
+      height: 40px;
+    }
+
+    .field__prepend {
+      padding-left: 12px;
+    }
+ 
+    .field__append {
+      padding-right: 12px;
+
+      .field__clearable-action {
+        min-width: 20px;
+        min-height: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &--rounded {
+    border-radius: $rounded-border;
+  }
+
+  &--invalid {
+    border: 1px solid map-get($theme-colors, "red");
+  }
+
+  &--disabled {
+    .field__inner {
+      cursor: not-allowed;
+    }
+
+    .field__control {
+      pointer-events: none;
+    }
+
+    .field__control > div {
+      opacity: 0.6 !important;
+      background-color: map-get($theme-colors, "disabled");
+    }
+  }
+
+  &--readonly {
+    .field__native {
+      cursor: default;
+    }
+  }
+}
+
+.field--outlined {
+  .field__control {
+    border-radius: $generic-border-radius;
+
+    &::before {
+      border: 1px solid map-get($theme-colors, "gray-5");
+      transition: border-color $field-transition;
+    }
+
+    &:hover::before {
+      border-color: map-get($theme-colors, "primary") !important;
+    }
+
+    &::after {
+      border-radius: inherit;
+      border: 1px solid transparent;
+      transition: border-color $field-transition;
+    }
+  }
+
+  .field__native {
+    &:-webkit-autofill {
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+  }
+
+  &.field--rounded .field__control {
+    border-radius: 28px;
+  }
+
+  &.field--highlighted {
+    .field__control::before {
+      border-color: transparent;
+    }
+
+    .field__control::after {
+      border-color: currentColor;
+      border-width: 1px;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  &.field--invalidMsg {
+    .field__control::before {
+      border-color: map-get($theme-colors, "error");
+    }
+  }
+
+  &.field--readonly {
+    .field__control::before {
+      border-style: dashed;
+    }
+  }
+}

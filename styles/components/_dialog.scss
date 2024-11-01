@@ -1,0 +1,36 @@
+$backdrop-bezier: cubic-bezier(0.25, 0.8, 0.5, 1);
+
+.backdrop {
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: all;
+  outline: 0;
+  display: none;
+
+  &__content {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    opacity: 0;
+  }
+
+  &--open {
+    display: block;
+    animation: active-anime--center 0.3s $backdrop-bezier;
+
+    .backdrop__content {
+      opacity: 1;
+      animation: scale-anime--popup 0.2s $backdrop-bezier;
+    }
+  }
+
+  &--close {
+    display: block;
+    animation: active-anime--center 0.3s $backdrop-bezier;
+
+    .backdrop__content {
+      opacity: 0;
+      animation: scale-anime--popup-close 0.2s $backdrop-bezier;
+    }
+  }
+}

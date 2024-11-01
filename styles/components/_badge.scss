@@ -1,0 +1,45 @@
+.badge {
+  background-color: currentColor;
+  color: map-get($theme-colors, 'white');
+  border-radius: $generic-border-radius;
+  font-size: map-get($text-size, 'sm');
+  line-height: 12px;
+  min-height: 12px;
+  font-weight: normal;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: baseline;
+
+  &--default-padding {
+    padding: 6px 10px;
+  }
+
+  &--circle-padding {
+    padding: 2px 6px;
+  }
+
+  &--single-line {
+    white-space: nowrap;
+  }
+
+  // &--multi-line {
+  //   word-break: break-all;
+  //   word-wrap: break-word;
+  // }
+  
+  &--floating {
+    position: absolute;
+    top: -4px;
+    right: -3px;
+    cursor: inherit;
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+  }
+
+  &--rounded {
+    border-radius: $rounded-border;
+  }
+}

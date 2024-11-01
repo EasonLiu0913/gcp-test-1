@@ -1,0 +1,66 @@
+.user-info {
+
+  @include media-xl () {
+    height: auto;
+    max-height: 80vh;
+  }
+  &__main {
+    @include media-xl(){
+      height: auto;
+      margin-right: 5px;
+    }
+  }
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    min-height: 70px;
+    min-width: 70px;
+    & > i {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  &__nav {
+    &__item {
+      &__icon {
+        background-color: map-get($theme-colors, 'primary-light');
+      }
+      @include media-xl{
+        transition: color 0.15s ease-in-out, background-color 0.15s ease;
+        &:hover {
+          color: map-get($theme-colors, 'primary');
+        }
+      }
+    }
+  }
+
+  &__project{
+
+    &__menu {
+      min-height: 100px;
+      height: calc(100vh - 442px);
+
+      @include media-xl{
+        height: calc(60vh - 383px);
+      }
+    }
+
+    &__item {
+      @include media-xl{
+        transition: background-color 0.15s ease;
+        &:hover{
+          background-color: map-get($theme-colors, 'primary-light');
+          
+          color: map-get($theme-colors, 'primary');
+        }
+      }
+    }
+  }
+
+  &__logout {
+    margin-bottom: 72px;
+    @include media-xl{
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.breadcrumbs {
+  border-radius: 16px;
+  background-color: $info-light;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: auto 175%;
+  background-position: right -10px;
+  padding: {
+    top: $default-padding;
+    bottom: $default-padding;
+  };
+  
+  @include media-md-max {
+    font-size: map-get($text-size, 'sm');
+  }
+
+  @include media-sm () {
+    background-image: url("/bannerPic.png");
+  }
+
+  &__list,
+  &__el {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 60px;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    text-decoration: none;
+    min-width: 30px;
+    & span{
+      color:  map-get($theme-colors, "gray-6");
+    }
+  }
+
+  &__separator {
+    &::after {
+      content: "/";
+      color: $body-color !important;
+      margin: 0 12px;
+    }
+  }
+}

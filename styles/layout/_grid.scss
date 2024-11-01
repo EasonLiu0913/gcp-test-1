@@ -1,0 +1,77 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  // margin: 0 -15px;
+  max-width: 100%;
+}
+
+.col {
+  flex: 1 0 0%;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  &-auto {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  @mixin width-calc($i) {
+    width: calc((100% / 12) * $i);
+  }
+
+  @for $i from 1 to 13 {
+    &-#{$i} {
+      @include width-calc($i);
+    }
+  }
+
+  @mixin media-col($key) {
+    
+    &-#{$key} {
+      flex: 1 0 0%;
+    }
+    
+    &-#{$key}-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+    
+    @for $i from 1 to 13 {
+      &-#{$key}-#{$i} {
+        @include width-calc($i);
+      }
+    }
+  }
+
+  @each $key, $value in $media-width {
+    @if $key == xs {
+      @include media-xs() {
+        @include media-col($key);
+      }
+    }
+    @if $key == sm {
+      @include media-sm() {
+        @include media-col($key);
+      }
+    }
+    @if $key == md {
+      @include media-md() {
+        @include media-col($key);
+      }
+    }
+    @if $key == lg {
+      @include media-lg() {
+        @include media-col($key);
+      }
+    }
+    @if $key == xl {
+      @include media-xl() {
+        @include media-col($key);
+      }
+    }
+    @if $key == xxl {
+      @include media-xxl() {
+        @include media-col($key);
+      }
+    }
+  }
+}

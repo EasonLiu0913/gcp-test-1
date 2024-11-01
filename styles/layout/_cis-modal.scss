@@ -1,0 +1,47 @@
+.cis-modal{
+  min-width: 270px;
+  margin: 20px;
+  
+    .card__section:first-child,
+    &__buttons.card__section {
+      @include media-sm-max {
+        padding: 12px 20px;
+      }
+    }
+  
+    .card__title {
+      font-size: 16px;
+  
+      @include media-sm {
+        font-size: 18px;
+      }
+    }
+  
+    &__action {
+      display: flex;
+  
+      &--cancel,
+      &--submit {
+        @include media-sm-max {
+          font-size: map-get($text-size, 'sm') !important;
+          padding: 4px 8px !important;
+        }
+      }
+  
+      &--cancel {
+        flex: 1;
+        width: 100%;
+        margin-right: 8px;
+  
+        @include media-sm {
+          margin-right: 12px;
+        }
+      }
+  
+      &--submit {
+        flex: 1;
+        width: 100%;
+      }
+    }
+  }
+  

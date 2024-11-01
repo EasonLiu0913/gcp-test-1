@@ -1,0 +1,99 @@
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.on-right {
+  margin-left: 8px;
+}
+
+.on-left {
+  margin-right: 8px;
+}
+
+.relative-position {
+  position: relative;
+}
+
+
+.absolute,
+.absolute-full,
+.absolute-center,
+.absolute-bottom,
+.absolute-left,
+.absolute-right,
+.absolute-top,
+.absolute-top-left,
+.absolute-top-right,
+.absolute-bottom-left,
+.absolute-bottom-right {
+  position: absolute;
+}
+
+.fullscreen,
+.fixed-full {
+  position: fixed;
+}
+
+.fullscreen {
+  z-index: 6000;
+  border-radius: 0 !important;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.absolute-top {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.absolute-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.absolute-bottom {
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.absolute-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.absolute-top-left {
+  top: 0;
+  left: 0;
+}
+
+.absolute-top-right {
+  top: 0;
+  right: 0;
+}
+
+.absolute-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.absolute-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.absolute-full,
+.fullscreen,
+.fixed-full {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

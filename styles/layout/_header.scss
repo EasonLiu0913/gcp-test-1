@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: map-get($header-height-size, 'min' );
+
+  @include media-sm() {
+    height: map-get($header-height-size, 'sm' );
+  }
+  @include media-xl() {
+    left: $define-left-width * .9;
+  }
+  @include media-xxl() {
+    left: $define-left-width;
+  }
+
+  &__user {
+    width: 32px;
+    height: 32px;
+  }
+  &__project {
+    width: 200px;
+    text-align: center;
+    @include media-xs {
+      width: 280px;
+    }
+    @include media-xl {
+      width: 80%;
+      text-align: left;
+    }
+  }
+}

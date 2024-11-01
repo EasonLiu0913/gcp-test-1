@@ -1,0 +1,8 @@
+@import "styles/themes/cis-color";
+@import "styles/base/variable";
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-color: map-get($theme-colors, 'gray-1');
+}

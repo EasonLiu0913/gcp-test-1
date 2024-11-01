@@ -1,0 +1,210 @@
+.text {
+  color: $body-color;
+  @each $value in $text {
+    &-#{$value} {
+      text-align: #{$value};
+    }
+    @each $w-key, $w-value in $media-width {
+      @if $w-key == sm {
+        @include media-sm() {
+          &-sm-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+      @if $w-key == md {
+        @include media-md() {
+          &-md-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+      @if $w-key == lg {
+        @include media-lg() {
+          &-lg-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+      @if $w-key == xl {
+        @include media-xl() {
+          &-xl-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+      @if $w-key == xxl {
+        @include media-xxl() {
+          &-xxl-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+
+      @if $w-key == xxxl {
+        @include media-xxxl() {
+          &-xxxl-#{$value} {
+            text-align: #{$value};
+          }
+        }
+      }
+    }
+  }
+
+  @each $key, $value in $text-size {
+    &-#{$key} {
+      font-size: #{$value};
+    }
+    @each $w-key, $w-value in $media-width {
+      @if $w-key == sm {
+        @include media-sm() {
+          &-sm-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == md {
+        @include media-md() {
+          &-md-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == lg {
+        @include media-lg() {
+          &-lg-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == xl {
+        @include media-xl() {
+          &-xl-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == xxl {
+        @include media-xxl() {
+          &-xxl-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+
+      @if $w-key == xxxl {
+        @include media-xxxl() {
+          &-xxxl-#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+    }
+  }
+
+  @each $key, $value in $display-font-sizes {
+    &-h#{$key} {
+      font-size: #{$value};
+    }
+    @each $w-key, $w-value in $media-width {
+      @if $w-key == sm {
+        @include media-sm() {
+          &-sm-h#{$key} {
+            font-size: #{$value} !important;
+          }
+        }
+      }
+      @if $w-key == md {
+        @include media-md() {
+          &-md-h#{$key} {
+            font-size: #{$value} !important;
+          }
+        }
+      }
+      @if $w-key == lg {
+        @include media-lg() {
+          &-lg-h#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == xl {
+        @include media-xl() {
+          &-xl-h#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == xxl {
+        @include media-xxl() {
+          &-xxl-h#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+      @if $w-key == xxxl {
+        @include media-xxxl() {
+          &-xxxl-h#{$key} {
+            font-size: #{$value};
+          }
+        }
+      }
+    }
+  }
+
+  @each $weight, $value in $text-weights {
+    &-weight-#{$weight} {
+      font-weight: $value;
+    }
+  }
+
+  &-nowrap{
+    white-space:nowrap;
+  }
+
+  &-break-all {
+    word-break: break-all;
+  }
+
+  &-big {
+    font-size: 16px;
+  }
+
+  &-small {
+    font-size: 12px;
+  }
+
+  &-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  &-tag {
+    padding: 2px $default-padding;
+    background-color: $tag-color;
+    font-weight: bold;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $generic-border-radius;
+    height: 20px;
+    white-space: nowrap;
+    width: fit-content;
+
+    &-delete {
+      cursor: pointer;
+      height: 16px;
+      width: 16px;
+      min-height: unset;
+      min-width: unset;
+    }
+  }
+
+  &-required:after {
+    content: '*';
+    color: $red;
+  }
+}
+

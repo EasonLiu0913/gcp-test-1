@@ -1,0 +1,44 @@
+.layout {
+  max-height: 100%;
+  &[data-hidden="true"] {
+    transition: max-height 0s .5s;
+    max-height: 0;
+    overflow: hidden;
+  }
+  @include media-xl {
+    &[data-hidden="true"] {
+      transition: none;
+      max-height: none;
+      overflow: auto;
+    }
+  }
+
+  &__body{
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: {
+      top: map-get($header-height-size, 'min' );
+    }
+
+    @include media-sm(){
+      padding: {
+        top: map-get($header-height-size, 'xl' );
+      }
+    }
+
+    @include media-xl(){
+      margin-left: $define-left-width * 0.9;
+    }
+
+    @include media-xxl(){
+      margin-left: $define-left-width;
+    }
+  }
+}

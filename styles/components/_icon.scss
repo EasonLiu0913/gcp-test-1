@@ -1,0 +1,119 @@
+.icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+
+  @each $key,
+  $value in $icon-size {
+    &-#{$key} {
+      width: $value;
+      height: $value;
+      min-width: $value;
+      min-height: $value;
+    }
+
+    @each $w-key, $w-value in $media-width {
+      @if $w-key == xs {
+        @include media-xs() {
+          &-xs-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+      @if $w-key == sm {
+        @include media-sm() {
+          &-sm-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+      @if $w-key == md {
+        @include media-md() {
+          &-md-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+      @if $w-key == lg {
+        @include media-lg() {
+          &-lg-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+      @if $w-key == xl {
+        @include media-xl() {
+          &-xl-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+      @if $w-key == xxl {
+        @include media-xxl() {
+          &-xxl-#{$key} {
+            width: $value;
+            height: $value;
+            min-width: $value;
+            min-height: $value;
+          }
+        }
+      }
+    }
+  }
+
+  @each $size, $icon-svg in $icon-svg-path {
+    @each $class-name, $path in $icon-svg {
+      &-#{$class-name} {
+        @include icon-setting($path, $size, map-get($theme-colors-rgb, "gray-9"))
+      }
+      // 加粗
+      &-stroke-#{$class-name} {
+        @include icon-setting-stroke($path, $size, map-get($theme-colors-rgb, "gray-9"))
+      }
+    }
+  }
+
+  // Credit Card
+  &-cc {
+    height: 36px;
+    width: 50px;
+    min-width: 36px;
+    min-height: 50px;
+  }
+
+  &-jcb {
+    background-image: url(/card/JCB.svg);
+  }
+
+  &-visa {
+    background-image: url(/card/Visa.svg);
+  }
+
+  &-mc {
+    background-image: url(/card/Mastercard.svg);
+  }
+
+  &-up {
+    background-image: url(/card/UnionPay.svg);
+  }
+}

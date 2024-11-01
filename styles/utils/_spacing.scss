@@ -1,0 +1,185 @@
+// padding & margin
+@mixin spacing-size($key, $value) {
+  .m-#{$key} {
+    margin: $value !important;
+  }
+
+  .p-#{$key} {
+    padding: $value !important;
+  }
+
+  @each $w-key, $w-value in $media-width {
+    @if $w-key == sm {
+      @include media-sm() {
+        .m-#{$w-key}-#{$key} {
+          margin: $value !important;
+        }
+    
+        .p-#{$w-key}-#{$key} {
+          padding: $value !important;
+        }
+      }
+    }
+    @if $w-key == md {
+      @include media-md() {
+        .m-#{$w-key}-#{$key} {
+          margin: $value !important;
+        }
+    
+        .p-#{$w-key}-#{$key} {
+          padding: $value !important;
+        }
+      }
+    }
+    @if $w-key == lg {
+      @include media-lg() {
+        .m-#{$w-key}-#{$key} {
+          margin: $value !important;
+        }
+    
+        .p-#{$w-key}-#{$key} {
+          padding: $value !important;
+        }
+      }
+    }
+    @if $w-key == xl {
+      @include media-xl() {
+        .m-#{$w-key}-#{$key} {
+          margin: $value !important;
+        }
+    
+        .p-#{$w-key}-#{$key} {
+          padding: $value !important;
+        }
+      }
+    }
+    @if $w-key == xxl {
+      @include media-xxl() {
+        .m-#{$w-key}-#{$key} {
+          margin: $value !important;
+        }
+    
+        .p-#{$w-key}-#{$key} {
+          padding: $value !important;
+        }
+      }
+    }
+  }
+
+  @each $d-key, $d-value in $direction {
+    .m#{$d-key}-#{$key} {
+      margin-#{$d-value}: $value !important;
+    }
+
+    .p#{$d-key}-#{$key} {
+      padding-#{$d-value}: $value !important;
+    }
+
+    @each $w-key, $w-value in $media-width {
+      @if $w-key == sm {
+        @include media-sm() {
+          .m#{$d-key}-#{$w-key}-#{$key} {
+            margin-#{$d-value}: $value !important;
+          }
+      
+          .p#{$d-key}-#{$w-key}-#{$key} {
+            padding-#{$d-value}: $value !important;
+          }
+        }
+      }
+      @if $w-key == md {
+        @include media-md() {
+          .m#{$d-key}-#{$w-key}-#{$key} {
+            margin-#{$d-value}: $value !important;
+          }
+      
+          .p#{$d-key}-#{$w-key}-#{$key} {
+            padding-#{$d-value}: $value !important;
+          }
+        }
+      }
+      @if $w-key == lg {
+        @include media-lg() {
+          .m#{$d-key}-#{$w-key}-#{$key} {
+            margin-#{$d-value}: $value !important;
+          }
+      
+          .p#{$d-key}-#{$w-key}-#{$key} {
+            padding-#{$d-value}: $value !important;
+          }
+        }
+      }
+      @if $w-key == xl {
+        @include media-xl() {
+          .m#{$d-key}-#{$w-key}-#{$key} {
+            margin-#{$d-value}: $value !important;
+          }
+      
+          .p#{$d-key}-#{$w-key}-#{$key} {
+            padding-#{$d-value}: $value !important;
+          }
+        }
+      }
+      @if $w-key == xxl {
+        @include media-xxl() {
+          .m#{$d-key}-#{$w-key}-#{$key} {
+            margin-#{$d-value}: $value !important;
+          }
+      
+          .p#{$d-key}-#{$w-key}-#{$key} {
+            padding-#{$d-value}: $value !important;
+          }
+        }
+      }
+    }
+  }
+
+  .mx-#{$key} {
+    margin-right: $value !important;
+    margin-left: $value !important;
+  }
+
+  .px-#{$key} {
+    padding-right: $value !important;
+    padding-left: $value !important;
+  }
+
+  .my-#{$key} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .py-#{$key} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}
+
+@each $key, $value in $direction-spacing {
+  @include spacing-size($key, $value);
+}
+
+.m-auto {
+  margin: $value-auto;
+}
+
+.public-padding {
+  padding: {
+    left: $default-section-padding / 2 ;
+    right: $default-section-padding / 2 ;
+  };
+
+  @include media-sm {
+    padding: {
+      left: $default-section-padding * 2 / 3;
+      right: $default-section-padding * 2 / 3 ;
+    };
+  }
+
+  @include media-xxl(){
+    padding: {
+      left: $default-section-padding;
+      right: $default-section-padding;
+    };
+  }
+}

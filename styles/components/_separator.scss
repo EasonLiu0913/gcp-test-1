@@ -1,0 +1,32 @@
+.separator {
+  border: 0;
+  background: map-get($theme-colors, "gray-4");
+  margin: 0;
+  transition: background 0.3s, opacity 0.3s;
+  flex-shrink: 0;
+
+  &--dark {
+    background: map-get($theme-colors, "light");
+  }
+
+  &--horizontal {
+    display: block;
+    height: 1px;
+
+    &-inset {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+  }
+
+  &--vertical {
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+
+    &-inset {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}

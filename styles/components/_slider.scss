@@ -1,0 +1,97 @@
+.slider {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-auto-flow: column;
+}
+
+// swiper
+.swiper {
+  &__prepend {
+    margin-right: 8px;
+  }
+
+  &__append {
+    margin-left: 8px;
+  }
+
+  &__prepend,
+  &__append {
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+  }
+
+  &--disabled {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+
+  &--auto-width {
+    width: auto !important;
+  }
+
+  @include media-lg() {
+    &--extended-width {
+      &[data-active="true"] {
+        transition: 0.3s ease-in-out;
+        width: 28% !important;
+      }
+
+      &[data-active="false"] {
+        transition: 0.3s ease-in-out;
+        width: 18% !important;
+      }
+    }
+  }
+}
+
+// ADJUST: product page slider (待搬動)
+.swiper--product-custom {
+  // adjust plan original css
+  .swiper-pagination-bullet {
+    height: 12px !important;
+    width: 12px !important;
+    margin: 8px !important;
+    background: map-get($theme-colors, "gray-1") !important;
+    opacity: 0.5 !important;
+
+    &-active {
+      background: map-get($theme-colors, "white") !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+// react-range-slider-input
+.product-search {
+  .range-slider {
+    height: 5px;
+
+    .range-slider__range {
+      background: map-get($theme-colors, "primary");
+    }
+
+    .range-slider__thumb {
+      width: 16px;
+      height: 16px;
+      background: map-get($theme-colors, "white");
+      border: 2px solid map-get($theme-colors, "primary");
+    }
+  }
+}
+
+#KeyVision {
+  .slider {
+    img {
+      width: 100%;
+    }
+  }
+}

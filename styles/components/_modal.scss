@@ -1,0 +1,36 @@
+.modal {
+  .card {
+    width: 420px;
+    max-width: 100%;
+    margin: $default-padding;
+    &__title {
+      font-size: map-get($text-size, 'lg' );
+      padding: $default-padding;
+    }
+  }
+
+  &__content {
+    //border-top: 1px solid map-get($theme-colors, 'gray-4' );
+    padding: $default-padding;
+    min-height: 100px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__btn {
+    padding: 0 $default-padding $default-padding $default-padding;
+    gap: $default-padding;
+    &.reverseBtn {
+      flex-direction: row-reverse;
+    }
+
+    .btn {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+

@@ -1,0 +1,75 @@
+.card {
+  box-shadow: map-get($shadows, "shadow-2");
+  border-radius: $basic-border-radius;
+  vertical-align: top;
+  background: map-get($theme-colors, "white");
+  position: relative;
+  z-index: 0;
+
+  &--size {
+    min-width: 50px;
+  }
+
+  &--bordered {
+    border: 1px solid map-get($theme-colors, "gray-3");
+    margin-top: 2px;
+  }
+
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+  }
+
+  &__title {
+    font-size: map-get($text-size, 'xl');
+    font-weight: map-get($text-weights, 'bold');
+    flex: 1;
+  }
+
+  &__close-button {
+    min-width: 30px;
+    min-height: 30px;
+  }
+}
+
+.card__section {
+  box-shadow: $default-box-shadow;
+  padding: $default-padding ($default-padding - 10px);
+  // margin-bottom: $default-padding;
+  border-radius: $basic-border-radius;
+  border: 1px solid map-get($theme-colors, 'gray-5' );
+
+  @include media-xxl() {
+    padding: $default-section-padding $default-padding;
+  }
+
+  &--vert {
+
+  }
+  
+  &__content {
+
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  &__header {
+    position: relative;
+    &__title{
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    &__hide {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}

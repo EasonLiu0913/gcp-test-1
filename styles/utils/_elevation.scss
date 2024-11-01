@@ -1,0 +1,10 @@
+.no-shadow,
+.shadow-0 {
+  box-shadow: none !important;
+}
+
+@each $key, $value in $shadows {
+  .#{$key} {
+    box-shadow: #{$value};
+  }
+}

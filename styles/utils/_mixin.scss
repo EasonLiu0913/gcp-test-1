@@ -1,0 +1,102 @@
+@mixin media-xxxl() {
+  @media all and (min-width: $media-width-xxxl) {
+    @content;
+  }
+}
+
+@mixin media-xxl() {
+  @media all and (min-width: $media-width-xxl) {
+    @content;
+  }
+}
+
+@mixin media-xl() {
+  @media all and (min-width: $media-width-xl) {
+    @content;
+  }
+}
+
+@mixin media-lg() {
+  @media all and (min-width: $media-width-lg) {
+    @content;
+  }
+}
+
+@mixin media-lg-max() {
+  @media all and (max-width: $media-width-lg) {
+    @content;
+  }
+}
+
+@mixin media-md() {
+  @media all and (min-width: $media-width-md) {
+    @content;
+  }
+}
+
+@mixin media-md-max() {
+  @media all and (max-width: $media-width-md-max) {
+    @content;
+  }
+}
+
+@mixin media-sm() {
+  @media all and (min-width: $media-width-sm) {
+    @content;
+  }
+}
+
+@mixin media-sm-max() {
+  @media all and (max-width: $media-width-sm-max) {
+    @content;
+  }
+}
+
+
+@mixin media-xs() {
+  @media all and (min-width: $media-width-xs) {
+    @content;
+  }
+}
+
+@mixin media-min() {
+  @media all and (max-width: $media-width-min) {
+    @content;
+  }
+}
+
+@mixin icon-svg($svg-path, $fill-color, $stroke-color, $view-box) {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="#{$view-box}"><path fill="#{$fill-color}" stroke="#{$stroke-color}" d="#{$svg-path}" stroke-width="20"/></svg>');
+}
+
+
+@mixin icon-setting($path, $size, $color) {
+  @include icon-svg($path,
+    $color,
+    transparent,
+    $size
+  );
+}
+
+@mixin icon-setting-stroke($path, $size, $color)  {
+  @include icon-svg($path,
+    $color,
+    $color,
+    $size
+  );
+}
+
+@mixin screen-full {
+  height: $value-100;
+  width: $value-100;
+  height: 100vh;
+  height: 100dvh;
+}
+
+@mixin screen-hug {
+  height: auto;
+  width: auto;
+  height: auto;
+  height: auto;
+  max-width: fit-content;
+}

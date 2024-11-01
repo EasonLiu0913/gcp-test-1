@@ -1,0 +1,60 @@
+.border{
+    border: 1px solid map-get($theme-colors , 'gray-5');
+
+    @each $key, $value in $border-width {
+        &-#{$key} {
+            border-width: $value !important;
+        }
+        @each $w-key, $w-value in $media-width {
+            @if $w-key == sm {
+                @include media-sm() {
+                    &-#{$w-key}-#{$key} {
+                        border-width: $value !important
+                    }
+                }
+            }
+            
+            @if $w-key == md {
+                @include media-md() {
+                    &-#{$w-key}-#{$key} {
+                        border-width: $value !important
+                    }
+                }
+            }
+            @if $w-key == lg {
+                @include media-lg() {
+                    &-#{$w-key}-#{$key} {
+                        border-width: $value !important
+                    }
+                }
+            }
+            @if $w-key == xl {
+                @include media-xl() {
+                    &-#{$w-key}-#{$key} {
+                        border-width: $value !important
+                    }
+                }
+            }
+            @if $w-key == xxl {
+                @include media-xxl() {
+                    &-#{$w-key}-#{$key} {
+                        border-width: $value !important
+                    }
+                }
+            }
+        }
+    }
+    
+    &-top{
+        border-top: 1px solid map-get($theme-colors , 'gray-5') !important;
+    }
+    &-end{
+        border-right: 1px solid map-get($theme-colors , 'gray-5') !important;
+    }
+    &-bottom{
+        border-bottom: 1px solid map-get($theme-colors , 'gray-5') !important;
+    }
+    &-start{
+        border-top: 1px solid map-get($theme-colors , 'gray-5') !important;
+    }
+}

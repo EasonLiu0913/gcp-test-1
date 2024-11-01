@@ -1,0 +1,45 @@
+.container {
+  padding: 0 $default-padding;
+  // @mixin container-width($width) {
+  //   width: 100%;
+  //   max-width: $width;
+  //   margin-right: auto;
+  //   margin-left: auto;
+  // }
+
+  // @each $key, $value in $container-max-widths {
+  //   &-#{$key} {
+  //     @include container-width($value);
+  //   }
+
+  //   @if $key == sm {
+  //     @include media-sm() {
+  //       @include container-width($value);
+  //     }
+  //   }
+  //   @if $key == md {
+  //     @include media-md() {
+  //       @include container-width($value);
+  //     }
+  //   }
+  //   @if $key == lg {
+  //     @include media-lg() {
+  //       @include container-width($value);
+  //     }
+  //   }
+  //   @if $key == xl {
+  //     @include media-xl() {
+  //       @include container-width($value);
+  //     }
+  //   }
+  //   @if $key == xxl {
+  //     @include media-xxl() {
+  //       @include container-width($value);
+  //     }
+  //   }
+  // }
+
+  // &-fluid {
+  //   @include container-width($value-auto);
+  // }
+}

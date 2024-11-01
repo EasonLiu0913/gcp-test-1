@@ -1,0 +1,17 @@
+.cursor {
+	cursor: default;
+
+	@each $value in $cursor {
+		&-#{$value} {
+			cursor: $value !important;
+		}
+	}
+}
+
+.no-pointer-events {
+  pointer-events: none !important;
+}
+
+.non-selectable {
+	user-select: none !important
+}

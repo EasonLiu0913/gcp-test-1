@@ -1,0 +1,29 @@
+.rolling-number {
+  overflow: hidden;
+  height: 1.2em;
+  display: flex;
+
+  .digit {
+    width: fit-content;
+
+    @keyframes rolling {
+      from { transform: translateY(0)}
+      to {transform: translateY(-20em)}
+    }
+
+    @mixin rolling-digit($digit) {
+      &.digit-#{$digit} {
+        animation: rolling 1s ease-in, rolling-#{$digit} 1s 1s ease-out forwards;
+      }
+
+      @keyframes rolling-#{$digit} {
+        from { transform: translateY(0px)}
+        to { transform: translateY(#{$digit * -1.2em})}
+      }
+    }
+
+    @for $digit from 0 through 10 {
+      @include rolling-digit($digit)
+    }
+  }
+}

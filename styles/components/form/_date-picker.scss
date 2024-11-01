@@ -1,0 +1,67 @@
+//$field-transition: 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+.date-picker {
+  position: relative;
+
+  //原生錯誤樣式
+  :global(.Mui-error.MuiInputBase-root) fieldset {
+    border-color: $red;
+  }
+
+  &.is-error {
+    :global(.MuiInputBase-root) fieldset {
+      border-color: $red;
+    }
+
+    .msg {
+      color: $red
+    }
+  }
+
+  :global(.Mui-disabled) {
+    background: #F7FAFC;
+
+    fieldset {
+      border-color: #EAF0F6 !important;
+    }
+  }
+
+  .msg {
+    position: relative;
+    top: -10px;
+    font-size: 12px;
+    text-align: right;
+    width: 100%;
+    height: 0;
+  }
+
+    //&:global(.p-component) {
+    //    margin-bottom: 0;
+    //
+    //    &::before {
+    //        box-sizing: border-box;
+    //    }
+    //}
+    //
+    //&:global(.p-calendar-disabled) {
+    //    &:hover::before {
+    //        border: 1px solid rgba(0, 0, 0, 0.28); // 解決 disabled 時 hover border 變色
+    //    }
+    //}
+    //
+    //& :global(.p-inputtext):disabled {
+    //    color: rgba(33, 37, 41, 0.4);
+    //    opacity: 1 !important; // 解決 disabled 時 border 漸層
+    //}
+    //
+    //&--invalid {
+    //    &::before {
+    //        transition: border-color $field-transition;
+    //        border: 2px solid map-get($theme-colors, "red") !important;
+    //    }
+    //}
+    //
+    //&__overlay {
+    //    transition: top  $field-transition;
+    //}
+}
+

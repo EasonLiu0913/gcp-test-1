@@ -1,0 +1,157 @@
+.left-menu {
+    position: fixed;
+    z-index: 2;
+    background-color: $white;
+    border-right: 1px solid $gray-300;
+    min-width: $define-left-width * .9;
+    display: none;
+    height: 100vh;
+    @include media-xl(){
+        display: block;
+    }
+    @include media-xxl(){
+        min-width: $define-left-width;
+    }
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100dvh - 60px);
+    @include media-xl{
+        height: 100%;
+    }
+
+    &__logo {
+        flex-grow: 0;
+        & img {
+            width: 165px;
+            height: auto;
+            @include media-sm {
+                width: 215px;
+                height: auto;
+                margin-left: -4px;
+            }
+        }
+    }
+
+    &__content{
+        height: 100%;
+        details {
+            margin-bottom: 5px;
+            &[open] {
+                .icon-arrow-down {
+                    transform: rotate(180deg);
+                }
+            }
+            @include media-xl(){
+                & li.block:hover {
+                    color: $primary;
+                    &::before{
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+
+        summary {
+            transition: 0.15s ease-in-out;
+            &.isSelected {
+                font-weight: bold;
+                background-color: $primary;
+                color: $white;
+                border-radius: 8px;
+            }
+            & i.icon-primary{
+                display: none;
+            }
+            @include media-xl(){
+                &:not(.isSelected):hover{
+                    border-radius: 8px;
+                    background-color: $primary-light;
+                    color: $primary;
+                    transition: 0.15s ease-in-out;
+                    & i.icon-primary{
+                        display: block;
+                    }
+                    & i.icon-block{
+                        display: none;
+                    }
+                }
+                &:not(.isSelected):hover > div, &:not(.isSelected):hover > a{
+                    color: $primary;
+                    transition: 0.15s ease-in-out;
+                }
+            }
+        }
+
+        i {
+            margin-right: 8px;
+            transition: 0.15s ease-in-out;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            padding: 10px 12px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            height: 24px;
+
+            &.sub {
+                padding: 5px 12px;
+            }
+        }
+
+        li {
+            &::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 6px;
+                background-color: $text-primary;
+                margin-left: 8px;
+                margin-right: 16px;
+            }
+
+            &.primary::before {
+                background-color: $primary;
+            }
+        }
+    }
+
+    &__nameCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: $secondary-light;
+        padding: 10px;
+        border-radius: $basic-border-radius;
+        flex-grow: 0;
+        margin: 20px 0;
+
+        &__icon {
+            width: 48px;
+            height: 48px;
+            box-sizing: border-box;
+            margin-right: 10px;
+
+            &__circle {
+                background-color: $gray-300;
+                border-radius: 25px;
+            }
+        }
+
+        > div:nth-child(1), >div:nth-child(3) {
+            flex-grow: 0
+        }
+
+        > div:nth-child(2) {
+            flex-grow: 1
+        }
+    }
+}

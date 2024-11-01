@@ -1,0 +1,53 @@
+.textarea {
+  .field__control {
+    min-height: 112px;
+    height: auto;
+  }
+
+  .field__inner {
+    align-self: stretch;
+  }
+
+  .field__control-container {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .field__native {
+    resize: none;
+    padding-top: 17px;
+    line-height: 18px;
+    min-height: 104px;
+
+    @include media-lg() {
+      resize: vertical;
+    }
+  }
+
+  &--disable-resize {
+    .field__native {
+      resize: none;
+    }
+  }
+
+  &.field--dense {
+    .field__control,
+    .field__native {
+      min-height: 72px;
+    }
+
+    .field__native {
+      padding-top: 9px;
+    }
+  }
+
+  &.disabled {
+    .field__native {
+      resize: none;
+    }
+  }
+
+  ::placeholder {
+    font-size: map-get($text-size, "md");
+  }
+}

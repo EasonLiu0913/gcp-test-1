@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"],
+      "common/*": ["src/common/*"],
+      "page-components/*": ["src/page-components/*"],
+      "pages/*": ["src/pages/*"],
+      "context/*": ["src/context/*"],
+      "config/*": ["config/*"],
+      "utils/*": ["utils/*"],
+      "styles/*": ["styles/*"],
+      "public/*": ["public/*"],
+      "hooks/*": ["hooks/*"],
+      "apis/*": ["apis/*"],
+      "slices/*": ["redux/slices/*"],
+      "store": ["redux/store.js"],
+    }
+  }
+}

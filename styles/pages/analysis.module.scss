@@ -1,0 +1,90 @@
+@import "styles/base/variable";
+@import "styles/utils/mixin";
+
+.related-row {
+  .flex {
+    display: flex;
+    gap: $space-default;
+    justify-content: safe center;
+    overflow-x: auto;
+    padding: 0 20px 10px 0;
+
+    @include media-md-max() {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .related-card {
+    width: 250px;
+    position: relative;
+    padding-bottom: map-get($direction-spacing, 0 );
+    border-radius: $generic-border-radius;
+    border: 1px solid map-get($theme-colors , 'gray-5');
+
+    .info {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      min-height: 100px;
+
+      .rank {
+        margin: 0 auto;
+        width: fit-content;
+        color: $secondary;
+      }
+
+      .count {
+        margin: 0 auto;
+        width: fit-content;
+      }
+    }
+  }
+}
+
+.label-chart {
+  min-height: 400px;
+  &__recharts {
+    min-width: 1200px;
+  }
+
+
+  &__chart {
+    &__auto{
+      min-width: auto;
+    }
+    &__5{
+      min-width: 500px;
+    }
+  }
+}
+
+.analysis-card {
+  display: flex;
+  grid-gap: $space-default;
+  flex-direction: column;
+
+  &__item {
+    width: 100%;
+    
+  }
+  @include media-sm () {
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    &__item {
+      width: calc((100% - $space-default) / 2);
+    }
+  }
+  @include media-md () {
+    &__item {
+      width: calc((100% - ($space-default * 2) ) / 3);
+    }
+  }
+  @include media-xl () {
+    &__item {
+      width: calc((100% - ($space-default * 4) ) / 5);
+    }
+  }
+
+}

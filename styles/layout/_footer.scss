@@ -1,0 +1,18 @@
+.footer {
+  font-size: 10px;
+
+  padding-left: 0;
+  @include media-xl() {
+    padding-left: $define-left-width * .9;
+  }
+  @include media-xxl() {
+    padding-left: $define-left-width;
+  }
+
+  &__copyright{
+    padding: 10px ($default-section-padding / 2);
+    @include media-sm() {
+      padding: 10px $default-section-padding;
+    }
+  }
+}

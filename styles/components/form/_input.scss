@@ -1,0 +1,44 @@
+.input {
+  display: flex;
+  align-items: flex-start;
+
+  .lg-input {
+    height: 48px;
+  }
+
+  ::placeholder {
+    font-size: map-get($text-size, 'md');
+  }
+
+  &__counter {
+    padding-left: 8px;
+    line-height: 1;
+  }
+  &--none{
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    &:focus {
+          outline: none;
+    }
+  }
+
+  &--hide-spin-button {
+    /* Chrome, Safari, Edge, Opera */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}

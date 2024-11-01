@@ -1,0 +1,48 @@
+// display
+.d {
+  @each $d-style in $display {
+    &-#{$d-style} {
+      display: #{$d-style} !important;
+    }
+  }
+  @mixin display-style($key, $value) {
+    &-#{$key}-#{$value} {
+      display: #{$value} !important;
+    }
+  }
+
+  @each $d-style in $display {
+    
+    @each $key, $value in $container-max-widths {
+      @if $key ==sm {
+        @include media-sm() {
+          @include display-style($key, $d-style);
+        }
+      }
+
+      @if $key ==md {
+        @include media-md() {
+          @include display-style($key, $d-style);
+        }
+      }
+
+      @if $key ==lg {
+        @include media-lg() {
+          @include display-style($key, $d-style);
+        }
+      }
+
+      @if $key ==xl {
+        @include media-xl() {
+          @include display-style($key, $d-style);
+        }
+      }
+
+      @if $key ==xxl {
+        @include media-xxl() {
+          @include display-style($key, $d-style);
+        }
+      }
+    }
+  }
+}

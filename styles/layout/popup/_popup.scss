@@ -1,0 +1,194 @@
+@mixin popup-pc-style() {
+    box-shadow: $default-box-shadow;
+    border: 1px solid map-get( $theme-colors, 'gray-5');
+    border-radius: $basic-border-radius;
+    &[data-full="false"]{
+        @include screen-hug();
+
+        @include media-sm() {
+            margin-top: map-get($header-height-size, 'sm' );
+        }
+
+        @include media-xl() {
+            min-width: ($define-left-width * .9) + 60px;
+        }
+
+        @include media-xxl() {
+            min-width: $define-left-width + 60px;
+        }
+    }
+}
+
+.popup {
+    position: fixed;
+    z-index: 20;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+
+    @include media-xl() {
+        transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+    }
+
+    &__bg {
+        @include screen-full();
+        &--colored{
+            background-color: rgba( 0, 0, 0, .2);
+        }
+    }
+
+    &[data-active="true"] {
+        transform: translate(0) scale(1);
+        opacity: 1;
+    }
+
+    &--fadeIn {
+        opacity: 0;
+    }
+
+    &--slideIn {
+        &-left {
+            transform: translateX(0 - $value-100);
+        }
+
+        &-right {
+            transform: translateX(0 + $value-100);
+        }
+
+        &-top {
+            transform: translateY(0 - $value-100);
+        }
+
+        &-bottom {
+            transform: translateY(0 + $value-100);
+        }
+
+        &-center{
+            transform: scale(0);
+        }
+    }
+
+    &--align {
+
+        &-left-top {
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        &-left {
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        &-left-bottom {
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        &-top {
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        &-center {
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-bottom {
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &-right-top {
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        &-right {
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &-right-bottom {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
+  
+    &__header {
+        background-color: $white;
+        height: map-get($header-height-size, 'min' );
+
+        @include media-sm() {
+            height: map-get($header-height-size, 'sm' );
+        }
+        @include media-xl() {
+            left: $define-left-width;
+        }
+    }
+  
+    &__main {
+        position: fixed;
+        background-color: $white;
+        overflow: hidden;
+        &[data-full="true"], &[data-full="false"]  {
+            @include screen-full();
+        }
+
+        @each $key, $value in $container-max-widths {
+            &--#{$key} {
+                @if $key == sm {
+                    @include media-sm() {
+                        @include popup-pc-style();
+                    }
+                }
+                @if $key == md {
+                    @include media-md() {
+                        @include popup-pc-style();
+                    }
+                }
+                @if $key == lg {
+                    @include media-lg() {
+                        @include popup-pc-style();
+                    }
+                }
+                @if $key == xl {
+                    @include media-xl() {
+                        @include popup-pc-style();
+                    }
+                }
+                @if $key == xxl {
+                    @include media-xxl() {
+                        @include popup-pc-style();
+                    }
+                }
+                @if $key == xxxl {
+                    @include media-xxxl() {
+                        @include popup-pc-style();
+                    }
+                }
+            }
+        }
+
+        @include media-xl() {
+            margin: {
+                left: $default-section-padding * 2 / 3 ;
+                right: $default-section-padding * 2 / 3;
+            }
+        }
+
+        @include media-xxl() {
+            margin: {
+                left: $default-section-padding;
+                right: $default-section-padding;
+            }
+        }
+    }
+    
+    &__content {
+      height: 100%; 
+    }
+}

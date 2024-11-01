@@ -1,0 +1,72 @@
+@import "styles/themes/cis-color";
+@import "styles/base/variable";
+@import "styles/utils/mixin";
+
+.main {
+    overflow: hidden;
+    & > div {
+        height: 100vh;
+    }
+
+    &__animate-bg {
+        &::before{
+            content: "";
+            animation-timeline: auto;
+            animation-range-start: normal;
+            animation-range-end: normal;
+            position: absolute;
+            height: 100%;
+            min-height: 100%;
+            width: 50%;
+            opacity: 0.3;
+            background: radial-gradient(rgb(210, 241, 223), rgb(211, 215, 250), rgb(186, 216, 244)) 0% 0% / 400% 400%;
+            animation: 15s ease 0s infinite normal none running gradient;
+            z-index: -1;
+        }
+    }
+
+    &__login {
+        width: 360px;
+        max-width: 100%;
+        &__subtitle {
+            color: map-get($theme-colors, 'text-secondary' );
+            font-size: 16px;
+            margin: 12px 0 30px 0;
+        }
+
+        @include media-xxl() {
+            width: 460px;
+        }
+
+        &__logo {
+            width: 180px;
+            height: auto;
+            @include media-sm {
+                width: 210px;
+            }
+        }
+    }
+}
+
+.reset-password {
+    .content {
+        height: 350px;
+    }
+
+    .loading {
+        position: relative;
+        top: 80px;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

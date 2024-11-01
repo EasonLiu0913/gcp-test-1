@@ -1,0 +1,101 @@
+@keyframes active-anime--top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes active-anime--bottom {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes active-anime--left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes active-anime--right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes active-anime--center {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-anime--popup {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.7); /* Safari */
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1); /* Safari */
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-anime--popup-close {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1); /* Safari */
+    transform: scale(1);
+    
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(0.7); /* Safari */
+    transform: scale(0.7);
+  }
+}
+
+@keyframes animate-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate {
+  &-rotate {
+    animation: animate-rotate .75s infinite linear;
+  }
+}

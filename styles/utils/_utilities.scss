@@ -1,0 +1,225 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+.body {
+  font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
+  font-size: map-get($map: $text-size, $key: md);
+  min-width: 320px;
+  color: $body-color;
+  background-color: $body-bg;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  line-height: 24px;
+  &::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
+
+  main {
+    flex-grow: 1;
+  }
+
+  & :global(a) {
+    color: map-get($theme-colors , 'text-primary');
+    text-decoration: none;
+
+    // white-space:nowrap;
+    @include media-md() {
+      &:hover {
+        color: map-get($theme-colors , 'gray-7');
+      }
+    }
+
+    &,
+    &:active,
+    &:focus {
+      -webkit-tap-highlight-color: transparent; // 這定透明 transparent 解決 Safari 超連結點擊瞬間，背景出現黑色問題
+      -moz-user-select: none;
+      /* Firefox */
+      -webkit-user-select: none;
+      /* Chrome , Safari*/
+      -ms-user-select: none;
+      /* IE10 */
+      -khtml-user-select: none;
+      /* 古早瀏覽器 */
+      user-select: none;
+    }
+  }
+
+  // avoid of view that blowing up
+  input,
+  textarea {
+    font-size: 14px;
+    color: $text-primary;
+  }
+
+  p {
+    line-height: 1.4;
+  }
+
+  :global(.MuiMultiSectionDigitalClock-root ul::-webkit-scrollbar) {
+    display: none;  /* Safari and Chrome */
+  }
+
+  :global(.MuiTextField-root) {
+    width: 100%;
+    margin-bottom: $default-padding;
+
+    :global(input) {
+      height: 40px;
+      padding: 10px;
+      box-sizing: border-box;
+      color: $text-primary;
+    }
+
+    &:hover :global(fieldset){
+      transition: border-color 0.3s ease-in-out;
+      border-color: $blue;
+    }
+
+    :global(fieldset) {
+      border-color: $border;
+    }
+
+    :global(.Mui-focused fieldset){
+      border-color: $primary;
+    }
+  }
+
+  :global(.MuiSelect-select) {
+    color: $text-primary;
+
+    &:hover {
+      border-color: $blue;
+    }
+  }
+
+  .table-header-btn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    //width: 70px;
+  }
+}
+
+.loading-color {
+  fill: $gray-600 !important;
+}
+
+.body-bg {
+  background-color: $body-bg;
+}
+
+// H1~H6
+.h {
+  @each $key,
+  $value in $display-font-sizes {
+    &#{$key} {
+      font-size: $value;
+      line-height: 1.2;
+    }
+  }
+}
+
+// width
+.w {
+
+  @each $key,
+  $value in $element-size {
+    &-#{$key} {
+      width: $value;
+    }
+  }
+}
+
+// height
+.h {
+
+  @each $key,
+  $value in $element-size {
+    &-#{$key} {
+      height: $value;
+    }
+  }
+}
+
+// title
+.section {
+  &__title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-top: 0;
+    padding: 5px 0;
+    font-size: 16px;
+
+    &::before {
+      content: "";
+      margin-right: 14px;
+      width: 5px;
+      height: 30px;
+      border-radius: 20px;
+      background: map-get($theme-colors, "secondary");
+    }
+
+    @include media-md() {
+      font-size: map-get($text-size, "xl");
+
+      &--separator {
+        &::after {
+          content: "";
+          flex: 1;
+          margin-left: 14px;
+          width: 100%;
+          height: 1px;
+          background: map-get($theme-colors, "primary");
+        }
+      }
+    }
+  }
+
+  &__title-buttons {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 12px;
+
+    .head__button {
+      padding: 8px 20px;
+
+      @include media-md-max() {
+        padding: 6px 12px;
+        font-size: map-get($text-size, 'sm');
+      }
+    }
+  }
+}
+
+.list-style-none {
+  list-style-type: none;
+}
+
+.status-pill{
+  color: #fff;
+  background-color: $blue;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.mui-table__sub-row--checked{
+  background-color: #eee;
+  > :first-of-type
+  { 
+    background-color: #eee;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.word-break {
+  word-break: break-all;
+}
+
+.rounded {
+  border-radius: $basic-border-radius;
+}

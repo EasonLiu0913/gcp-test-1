@@ -1,0 +1,8 @@
+.table__tab {
+    width: auto !important;
+    a {
+        border-top-left-radius: $generic-border-radius;
+        border-top-right-radius: $generic-border-radius;
+        border: 1px solid #dee2e6;
+    }
+}

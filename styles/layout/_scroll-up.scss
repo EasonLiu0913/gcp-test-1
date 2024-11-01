@@ -1,0 +1,18 @@
+.scroll-up-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 100px;
+  right: 2%;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &--hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

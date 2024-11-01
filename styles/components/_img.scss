@@ -1,0 +1,97 @@
+.img {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+
+  &__container {
+    border-radius: inherit;
+    font-size: 0;
+    height: 100%;
+    &--bg {
+      background-color: map-get($theme-colors, "gray-1");
+      background-image: url(/no-picture.svg);
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: center;
+    }
+  }
+
+  &__aspect-ratio {
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &-cover {
+      background-size: cover !important;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+    }
+    
+    // 16:10 比例
+    &-16-10::before {
+      padding-top: 62.5%; // 10 / 16 * 100
+    }
+
+    // 1.19:1 比例
+    &-191-1::before {
+      padding-top: 52.36%; // 1 / 1.91 * 100
+    }
+
+    // 4:3 比例
+    &-4-3::before {
+      padding-top: 75%; // 3 / 4 * 100
+    }
+
+    // 1:1 比例
+    &-1-1::before {
+      padding-top: 100%; // 1 / 1 * 100
+    }
+  }
+
+  &__image {
+    border-radius: inherit;
+  }
+
+  &__image--width-full {
+    width: 100%;
+  }
+
+  &__image--height-full {
+    height: 100%;
+  }
+
+  &__content {
+    border-radius: inherit;
+    // pointer-events: none;
+  }
+
+  &--backdrop {
+    // pointer-events: all;
+    position: absolute;
+    padding: 8px;
+    color: map-get($theme-colors, "white");
+    // background: rgba(0, 0, 0, 0.47);
+    background: linear-gradient(180deg, rgb(0 0 0/0), rgb(0 0 0/60%) 80%);
+  }
+
+  
+  &-default {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+}
