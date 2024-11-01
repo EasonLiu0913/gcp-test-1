@@ -1,0 +1,36 @@
+runtime: nodejs
+runtime_config:
+    operating_system: "ubuntu22"
+    runtime_version: "20"
+api_version: '0.1'
+env: flex
+env_variables:
+  NEXT_PUBLIC_API_URL: 'ABCDE'
+
+# Ensures all routes are handled automatically
+handlers:
+  - url: /.*
+    script: auto  
+
+threadsafe: true
+manual_scaling:
+  instances: 1
+network:
+  name: default
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+liveness_check:
+  initial_delay_sec: '300'
+  check_interval_sec: '30'
+  timeout_sec: '4'
+  failure_threshold: 4
+  success_threshold: 2
+readiness_check:
+  check_interval_sec: '5'
+  timeout_sec: '4'
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: '300'
+service_account: hotai-connected-gae-poc@appspot.gserviceaccount.com
