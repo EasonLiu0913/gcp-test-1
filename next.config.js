@@ -211,7 +211,7 @@ const nextConfig = {
     return [
       {
         source: '/(.*)',
-        // headers: securityHeaders,
+        headers: [],
       },
       // {
       //   source: '/api/(.*)', // 针对 API 路径的设置
