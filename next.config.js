@@ -161,10 +161,10 @@ const csp = `
 `
 
 const securityHeaders = [
-  {
-    key: 'Content-Security-Policy',
-    value: csp.replace(/\s{2,}/g, ' ').trim(),
-  },
+  // {
+  //   key: 'Content-Security-Policy',
+  //   value: csp.replace(/\s{2,}/g, ' ').trim(),
+  // },
   {
     key: 'Strict-Transport-Security',
     value: 'max-age=31536000; includeSubDomains',
@@ -211,7 +211,7 @@ const nextConfig = {
     return [
       {
         source: '/(.*)',
-        headers: [],
+        headers: securityHeaders,
       },
       // {
       //   source: '/api/(.*)', // 针对 API 路径的设置
