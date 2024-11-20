@@ -53,7 +53,9 @@ const Dashboard = () => {
       <title>{headTitle}</title>
     </Head>
     <div>
-
+      <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING || 'no env 1'}</p>
+      <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_2 || 'no env 2'}</p>
+      <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'no env 3'}</p>
       <div className={classReader('mb-3')}>
         <Summary totalClick={totalClick} />
       </div>
