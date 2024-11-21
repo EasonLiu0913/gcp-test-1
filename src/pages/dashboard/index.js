@@ -19,11 +19,13 @@ import Modal from 'common/Modal'
 import { isBeforeDate } from 'utils/date'
 
 export async function getServerSideProps(context) {
+  const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3;
   const headParams = handleHeadParams(context)
-  return { props: { ...headParams } }
+  return { props: { ...headParams,myEnv } }
 }
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const {myEnv} = props
   const pageName = 'Dashboard'
   const headTitle = `${pageName}${TAB_TITLE_SUFFIX}`
   const user = useSelector(selectUser)
@@ -55,7 +57,7 @@ const Dashboard = () => {
     <div>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING || 'no env 1'}</p>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_2 || 'no env 2'}</p>
-      <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'no env 3'}</p>
+      <p>{myEnv ||  'no env 3'}</p>
       <div className={classReader('mb-3')}>
         <Summary totalClick={totalClick} />
       </div>
