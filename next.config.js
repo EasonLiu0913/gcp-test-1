@@ -203,7 +203,6 @@ const nextConfig = {
   env: {
     version: `v ${version}`,
     NEXT_PUBLIC_UI_VIEW: 'true',
-    NEXT_PUBLIC_MY_TEST_STRING_3: process.env.NEXT_PUBLIC_MY_TEST_STRING_3,
     // nonce: nonce,
   },
   // reactStrictMode: true, // next 13 與 react 18 會有衝突，導致頁面渲染兩次(造成開啟 API 會打兩次)
