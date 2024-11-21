@@ -55,6 +55,7 @@ const Dashboard = (props) => {
       <title>{headTitle}</title>
     </Head>
     <div>
+      <p>0.0.1</p>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING || 'no env 1'}</p>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_2 || 'no env 2'}</p>
       <p>{myEnv ||  'no env 3'}</p>
