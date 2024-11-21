@@ -19,7 +19,7 @@ import Modal from 'common/Modal'
 import { isBeforeDate } from 'utils/date'
 
 export async function getServerSideProps(context) {
-  const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3;
+  const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'hi';
   const headParams = handleHeadParams(context)
   return { props: { ...headParams,myEnv } }
 }
