@@ -20,11 +20,7 @@ const nonLoginRequiredDomainRegex = RegExp(NON_LOGIN_REQUIRED_DOMAIN.join('|'))
 
 export async function getServerSideProps(context) {
   const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'hi'
-  return {
-    props: {
-      myEnv,
-    },
-  }
+  return { props: { myEnv } }
 }
 
 export default function RouteProtect({ children, myEnv }) {
@@ -83,23 +79,23 @@ export default function RouteProtect({ children, myEnv }) {
     if (domainPermissionInfo) {
       const permission = permissions[domainPermissionInfo.id]
       switch (domainPermissionInfo.minPermission) {
-        case 'V':
-          if ([
-            'RWD',
-            'RW',
-            'V',
-          ].includes(permission)) result = true
-          break
-        case 'RW':
-          if (['RWD', 'RW'].includes(permission)) result = true
-          break
-        case 'RWD':
-          if (['RWD'].includes(permission)) result = true
-          break
-        case 'OPEN':
-          result = true
-          break
-        default:
+      case 'V':
+        if ([
+          'RWD',
+          'RW',
+          'V',
+        ].includes(permission)) result = true
+        break
+      case 'RW':
+        if (['RWD', 'RW'].includes(permission)) result = true
+        break
+      case 'RWD':
+        if (['RWD'].includes(permission)) result = true
+        break
+      case 'OPEN':
+        result = true
+        break
+      default:
       }
 
       if (router.pathname !== '/dashboard' && permission === 'BAN') {
