@@ -44,12 +44,12 @@ export default function RouteProtect({ children, myEnv }) {
     }
   }
 
-    useEffect(() => {
+  useEffect(() => {
     fetch('/api/env')
       .then(res => res.json())
       .then(data => {
         setMyEnv(data.myEnv)
-        console.log('myEnv123', data.myEnv)
+        console.log('myEnv', data.myEnv)
       })
   }, [])
 
