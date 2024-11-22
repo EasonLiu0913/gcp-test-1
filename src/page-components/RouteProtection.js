@@ -11,14 +11,24 @@ import { NON_LOGIN_REQUIRED_DOMAIN } from 'config/router'
 import {
   NO_PROJECT_ERROR_MSG,
   NO_PROJECT_ERROR_NO_LIST,
-  PROJECT_NO_PREMISSIONS_ERROR_MSG, 
+  PROJECT_NO_PREMISSIONS_ERROR_MSG,
 } from 'config/error'
 import Cookies from 'js-cookie'
 import { OAUTH, ENV_INFO } from 'config/config'
 
 const nonLoginRequiredDomainRegex = RegExp(NON_LOGIN_REQUIRED_DOMAIN.join('|'))
 
-export default function RouteProtect({ children }) {
+export async function getServerSideProps(context) {
+  const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'hi'
+  return {
+    props: {
+      myEnv,
+    },
+  }
+}
+
+export default function RouteProtect({ children, myEnv }) {
+  console.log('myEnv', myEnv)
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [errDlgMsg, setErrDlgMsg] = useState('')
   const { reportError } = useError()
@@ -51,7 +61,7 @@ export default function RouteProtect({ children }) {
   useEffect(() => {
     if (!router.isReady) return
     if (nonLoginRequiredDomainRegex.test(router.pathname)) return setIsAuthorized(true)
-    
+
     const token = Cookies.get(OAUTH.TOKEN)
 
     if (token === undefined) {
@@ -73,23 +83,23 @@ export default function RouteProtect({ children }) {
     if (domainPermissionInfo) {
       const permission = permissions[domainPermissionInfo.id]
       switch (domainPermissionInfo.minPermission) {
-      case 'V':
-        if ([
-          'RWD',
-          'RW',
-          'V',
-        ].includes(permission)) result = true
-        break
-      case 'RW':
-        if (['RWD', 'RW'].includes(permission)) result = true
-        break
-      case 'RWD':
-        if (['RWD'].includes(permission)) result = true
-        break
-      case 'OPEN':
-        result = true
-        break
-      default:
+        case 'V':
+          if ([
+            'RWD',
+            'RW',
+            'V',
+          ].includes(permission)) result = true
+          break
+        case 'RW':
+          if (['RWD', 'RW'].includes(permission)) result = true
+          break
+        case 'RWD':
+          if (['RWD'].includes(permission)) result = true
+          break
+        case 'OPEN':
+          result = true
+          break
+        default:
       }
 
       if (router.pathname !== '/dashboard' && permission === 'BAN') {
@@ -104,5 +114,5 @@ export default function RouteProtect({ children }) {
     setIsAuthorized(result)
   }, [permissions])
 
-  return isAuthorized ? children : errDlgMsg 
+  return isAuthorized ? children : errDlgMsg
 }
