@@ -12,5 +12,5 @@ export default function handler(req, res) {
   // res.setHeader('Access-Control-Allow-Origin', 'https://gcp-test-1-342251465384.asia-east1.run.app')
   
   // 返回環境變數
-  res.status(200).json({ myEnv: process.env.MY_TEST_STRING_3 || 'hi', origin: origin || 'no origin' })
+  res.status(200).json({ myEnv: origin || 'no origin' })
 } 
