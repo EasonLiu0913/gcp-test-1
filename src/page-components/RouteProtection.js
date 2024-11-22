@@ -18,11 +18,6 @@ import { OAUTH, ENV_INFO } from 'config/config'
 
 const nonLoginRequiredDomainRegex = RegExp(NON_LOGIN_REQUIRED_DOMAIN.join('|'))
 
-export async function getServerSideProps(context) {
-  const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'hi'
-  return { props: { myEnv } }
-}
-
 export default function RouteProtect({ children, myEnv }) {
   console.log('myEnv', myEnv)
   const [isAuthorized, setIsAuthorized] = useState(false)
@@ -48,6 +43,15 @@ export default function RouteProtect({ children, myEnv }) {
       }
     }
   }
+
+    useEffect(() => {
+    fetch('/api/env')
+      .then(res => res.json())
+      .then(data => {
+        setMyEnv(data.myEnv)
+        console.log('myEnv123', data.myEnv)
+      })
+  }, [])
 
   useEffect(() => {
     console.log(ENV_INFO.version) // 顯示版本號
