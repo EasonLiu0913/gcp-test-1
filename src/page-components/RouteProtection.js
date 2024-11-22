@@ -19,7 +19,7 @@ import { OAUTH, ENV_INFO } from 'config/config'
 const nonLoginRequiredDomainRegex = RegExp(NON_LOGIN_REQUIRED_DOMAIN.join('|'))
 
 export default function RouteProtect({ children }) {
-    const [myEnv, setMyEnv] = useState(null)
+  const [myEnv, setMyEnv] = useState(null)
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [errDlgMsg, setErrDlgMsg] = useState('')
   const { reportError } = useError()
@@ -49,7 +49,7 @@ export default function RouteProtect({ children }) {
       .then(res => res.json())
       .then(data => {
         setMyEnv(data.myEnv)
-        console.log('myEnv', data.myEnv)
+        console.log('myEnv from api', data.myEnv)
       })
   }, [])
 
