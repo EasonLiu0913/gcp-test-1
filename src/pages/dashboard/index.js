@@ -21,8 +21,11 @@ import { isBeforeDate } from 'utils/date'
 export async function getServerSideProps(context) {
   const myEnv = process.env.NEXT_PUBLIC_MY_TEST_STRING_3 || 'hi'
   const headParams = handleHeadParams(context)
-  return { props: { ...headParams,myEnv:myEnv } }
-}
+  return { props: { 
+      ...headParams,
+      myEnv, 
+    }}
+  }
 
 const Dashboard = (props) => {
   const { myEnv } = props
@@ -58,7 +61,7 @@ const Dashboard = (props) => {
       <p>0.0.1</p>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING || 'no env 1'}</p>
       <p>{process.env.NEXT_PUBLIC_MY_TEST_STRING_2 || 'no env 2'}</p>
-      <p>{myEnv ||  'no env 3'}</p>
+      <p>{myEnv || 'no env 3'}</p>
       <div className={classReader('mb-3')}>
         <Summary totalClick={totalClick} />
       </div>
