@@ -18,8 +18,8 @@ import { OAUTH, ENV_INFO } from 'config/config'
 
 const nonLoginRequiredDomainRegex = RegExp(NON_LOGIN_REQUIRED_DOMAIN.join('|'))
 
-export default function RouteProtect({ children, myEnv }) {
-  console.log('myEnv', myEnv)
+export default function RouteProtect({ children }) {
+    const [myEnv, setMyEnv] = useState(null)
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [errDlgMsg, setErrDlgMsg] = useState('')
   const { reportError } = useError()
