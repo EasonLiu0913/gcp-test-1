@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
     props: {
       ...headParams,
       myEnv,
-    }
+    },
   }
 }
 
